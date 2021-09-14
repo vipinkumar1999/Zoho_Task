@@ -9,7 +9,7 @@
      float taxi1,taxi2,taxi3,taxi4,taxi5;
      int taxi1_book,taxi2_book,taxi3_book,taxi4_book,taxi5_book;
   int taxi_earning[5];
-    struct taxi
+    struct taxi//Structure for storing taxi details
     {
         int customer_id;
         char pickup_point[3];
@@ -17,7 +17,7 @@
         float pickup_time;
     }t[100];
 
-    struct booking
+    struct booking//Structure for storing taxi booking details
     {
     // static int taxi_earning[4];
         int booking_id;
@@ -29,7 +29,7 @@
         int amount;
     }b[5][100];
 
-float booking(struct booking *b,struct taxi t,int no)
+float booking(struct booking *b,struct taxi t,int no)//Storing booking details
 {
 b->customer_id=t.customer_id;
 b->booking_id=booking_id++;
@@ -55,7 +55,7 @@ taxi_earning[no]+=b->amount;
 return b->droptime;
 }
 
-int distance(char *a,char *b)
+int distance(char *a,char *b)//Calculate distance between start and end points
 {
  char start=a[0];
  char stop=b[0];
@@ -66,7 +66,7 @@ void taxiprint(int taxino)
 {
  printf("\nAlloted Taxi: Taxi%d \n\n",taxino);
 }
-void display()
+void display()//Display history of each taxi bookings
 {
  int i;
  if(taxi1_book>0)
@@ -123,50 +123,8 @@ void display()
   }
  }
 }
-//void store()
-//{
-// int i;
-//FILE *fptr;
-//fptr = fopen("output.txt","a");//Store output in output.txt
-// if(taxi1_book>0)
-// {
-//  for(i=0;i<taxi1_book;i++)
-//  {
-//  fprintf(fptr,"     %d              %d         %s     %s       %.2f        %.2f      %d\n",b[1][i].booking_id,b[1][i].customer_id,b[1][i].from,b[1][i].to,b[1][i].pickuptime,b[1][i].droptime,b[1][i].amount);
-//}
-// }
-// if(taxi2_book>0)
-// {
-//  int i;
-//  for(i=0;i<taxi2_book;i++)
-//  {
-//   fprintf(fptr,"     %d              %d         %s     %s       %.2f        %.2f      %d\n",b[1][i].booking_id,b[1][i].customer_id,b[1][i].from,b[1][i].to,b[1][i].pickuptime,b[1][i].droptime,b[1][i].amount);
-//  }
-// }if(taxi3_book>0)
-// {
-//  int i;
-//  for(i=0;i<taxi3_book;i++)
-//  {
-//  fprintf(fptr,"     %d              %d         %s     %s       %.2f        %.2f      %d\n",b[2][i].booking_id,b[2][i].customer_id,b[2][i].from,b[2][i].to,b[2][i].pickuptime,b[2][i].droptime,b[2][i].amount);
-//  }
-// }if(taxi4_book>0)
-// {
-//  int i;
-//  for(i=0;i<taxi4_book;i++)
-//  {
-//  fprintf(fptr,"     %d              %d         %s     %s       %.2f        %.2f      %d\n",b[3][i].booking_id,b[3][i].customer_id,b[3][i].from,b[3][i].to,b[3][i].pickuptime,b[3][i].droptime,b[3][i].amount);
-//  }
-// }if(taxi5_book>0)
-// {
-//  int i;
-//  for(i=0;i<taxi5_book;i++)
-//  {
-//   fprintf(fptr,"     %d              %d         %s     %s       %.2f        %.2f      %d\n",b[4][i].booking_id,b[4][i].customer_id,b[4][i].from,b[4][i].to,b[4][i].pickuptime,b[4][i].droptime,b[4][i].amount);
-//  }
-// }
-// fclose(fptr);
-//}
-int main()
+
+int main()// Function to handle bookings
 {
 //	FILE *fptr;
 //	fptr = fopen("output.txt","w");//input is from input.txt
